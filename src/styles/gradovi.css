@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.gradovi{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 5px;
+    margin-left: 13vw;
+   
+}
+
+.grad{
+    text-decoration: none;
+    color: #4A4A4A;
+}
+
+i{
+    margin-top: 28px;
+    margin-bottom: 40px;
+    margin-right: 15px;
+    text-decoration: none;
+    color: #4A4A4A;
+    
+}
+
+
+
+.link{
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: none;
+}

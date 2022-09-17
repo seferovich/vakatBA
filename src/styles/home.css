@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@700&display=swap');
+*{
+    font-family: 'Reem Kufi Fun', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    
+}
+.app-dark{
+    background-color: #08093F;
+    min-height: 100vh;
+}
+
+.dark{
+    color: white;
+}
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.lokacija-main{
+    font-size: 4.5vh;
+    margin-top: 5vh;
+    color: #7F499D;
+}
+.vaktovi{
+    margin-top: 1.2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+.vakat-time{
+    color: #4A4A4A ;
+}
+.vakat-name{
+    font-size: 2.5vh;
+    padding-top: 10px;
+    color: #a35aca;
+}
+
+.vaktovi{
+    display: flex;
+    flex-direction: row-reverse;
+
+}
+
+.vakat{
+    display: flex;
+    flex-direction: column;
+    font-size: 4.55vh;
+    margin-left: 40%;
+    margin-top: 9%;
+}
+
+.ico{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.fa-sun{
+    color: white;
+}
+
+.clock{
+    font-size: 3vh;
+}
