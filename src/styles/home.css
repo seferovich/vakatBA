@@ -49,7 +49,7 @@
 .vaktovi{
     display: flex;
     flex-direction: row-reverse;
-
+    
 }
 
 .vakat{
@@ -73,4 +73,18 @@
 
 .clock{
     font-size: 3vh;
+}
+
+@media only screen and (max-width: 490px){ 
+      .vakat-name{
+        margin-left: -5vw;
+        font-size: 2.3vh;
+      }
+      .vakat{
+        margin-left: 30%;
+        font-size: 4.02vh;
+      }
+      .vakat-time{
+        margin-top: 7px;
+      }
 }

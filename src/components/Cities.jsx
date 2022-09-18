@@ -1,24 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {Link} from 'react-router-dom'
 import { nanoid } from "nanoid";
-import '../styles/gradovi.css'
+import '../styles/cities.css'
 
-const Gradovi = (props) => {
-    const [city, setCity] = useState([])
-    
-
-    useEffect(()=>{
-        const fetchCity = () => {
-            fetch('https://api.vaktija.ba/vaktija/v1/lokacije')
-            .then(res => res.json())
-            .then(data => setCity(data))
-        }
-        fetchCity()
-    }, [])
-    
-    
-
-    const gradovi = city.map((grad,i) => {
+const Cities = (props) => {
+    // Rendering API city data
+    const gradovi = props.city.map((grad,i) => {
         return <Link 
         className={`grad ${props.dark ? 'dark' : ''}`}
         to='/vakatBA' 
@@ -27,8 +14,8 @@ const Gradovi = (props) => {
         id={parseInt(i)}>
             {grad}
         </Link>
-     })
-    
+    })
+        
     
     return(
         <div>
@@ -40,4 +27,4 @@ const Gradovi = (props) => {
     )
 }
 
-export default Gradovi
+export default Cities

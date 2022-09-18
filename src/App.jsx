@@ -1,62 +1,70 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect} from "react";
 import {Routes, Route} from 'react-router-dom'
-import Gradovi from "./components/gradovi";
-import Home from './components/home'
+import Cities from "./components/Cities";
+import Home from './components/Home'
 
 function App() {
   const [data, setData] = useState('Loading...')
+  const [city, setCity] = useState([])
   const [darkMode, setDarkMode] = useState(false)
+
   
 
-  useCallback(()=>{},[])
-      const fetchData = async (id) => {
-        await fetch(`https://api.vaktija.ba/vaktija/v1/${id}`)
-        .then(res => res.json())
-        .then(data => setData(data))
-      }
-    useEffect(()=>{
-      fetchData(16)
+  // API fetches for data and cities
 
-    }, [])
+  const fetchData = async (id) => {
+    await fetch(`https://api.vaktija.ba/vaktija/v1/${id}`)
+    .then(res => res.json())
+    .then(data => setData(data))
+  }
 
-   
-    const handleClick = (e) => {
-    
-      fetchData(e.target.id)
-    }
-    console.log(data)
-    const handleChange = (e) => {
+  const fetchCity = () => {
+    fetch('https://api.vaktija.ba/vaktija/v1/lokacije')
+    .then(res => res.json())
+    .then(data => setCity(data))
+  }
 
-      setDarkMode(prevDarkMode => !prevDarkMode)
-      e.preventDefault()
-    }
-  
-  
+
+  useEffect(()=>{
+    fetchData(16)
+    fetchCity()
+  },[])
+ 
+
+  // Fetching for cities
+  const handleFetch = (e) => {
+    fetchData(e.target.id)
+  }
+
+  // Switching dark/light themes
+  const handleChange = (e) => {
+    setDarkMode(prevDarkMode => !prevDarkMode)
+    e.preventDefault()
+  }
 
   return (
-    <div className={darkMode ? 'app-dark' : 'app'}>
-      
+    <div className={darkMode ? 'app-dark' : 'app'}>    
       <Routes>
 
         <Route path='/vakatBa' element={
         <Home 
         data={data}
         dark={darkMode}
+        handleChange={handleChange}
         />} 
         />
         
         <Route path='/vakatBA/lokacija' element={
-        <Gradovi 
-        handleClick={handleClick}
+        <Cities
+        city={city}
+        data={data} 
+        handleClick={handleFetch}
         dark={darkMode}
         />} 
         />
 
       </Routes>
-      {darkMode ? 
-      <div className="ico"><i onClick={handleChange} className="fa-regular fa-sun fa-5x"></i></div> : 
-      <div className="ico"><i onClick={handleChange} className="fa-solid fa-moon fa-6x"></i></div>
-      } 
+      
         
     </div>
     

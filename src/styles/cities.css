@@ -8,13 +8,16 @@
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 5px;
-    margin-left: 13vw;
+    margin-left: 7vw;
+    
    
 }
 
 .grad{
     text-decoration: none;
     color: #4A4A4A;
+    font-size: 3.5vh;
+    
 }
 
 i{
@@ -24,12 +27,32 @@ i{
     text-decoration: none;
     color: #4A4A4A;
     
+    
 }
-
-
 
 .link{
     display: flex;
     justify-content: flex-end;
     text-decoration: none;
+}
+
+
+@media only screen and (max-width: 900px)  {
+    .grad{
+        font-size: 3.8vw;
+    }
+}
+@media only screen and (max-width: 900px)  {
+    .gradovi{
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 6px;
+    }
+    .grad{
+        font-size: 5vw;
+    }
+}
+
+@media only screen and (max-width: 680px){ 
+      
 }

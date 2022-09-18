@@ -1,20 +1,22 @@
 import React, {useState, useEffect} from "react";
 import { nanoid } from "nanoid";
 import '../styles/home.css'
-import Nav from "./nav";
+import Nav from "./Nav";
 
 const Home = (props) => {
     const date = new Date();
     const sat = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
     const [time, setTime] = useState(sat)
 
+    // Clock
     useEffect(()=>{
         setInterval(()=>{
             const clock = new Date();
             setTime(clock.getHours() + ':' + clock.getMinutes() + ':' + clock.getSeconds())
         },1000)
     }, [])
-   
+
+    // Rendering API data
     const vakatovi = props.data.vakat?.map((namaz, i ) =>{
         return <h2 className={`vakat ${props.dark ? 'dark' : ''}`} id={i}key={nanoid()}>{namaz}</h2>
     })
@@ -41,7 +43,7 @@ const Home = (props) => {
     
     return(
         
-        <div >
+        <div>
             <Nav />
             <div className="home">
                 <h1 className="lokacija-main">Vaktija {props.data.lokacija}</h1>
@@ -50,6 +52,10 @@ const Home = (props) => {
                     {vaktovi()}
                 </div>
             </div>
+            {props.dark ? 
+            <div className="ico"><i onClick={props.handleChange} className="fa-regular fa-sun fa-5x"></i></div> : 
+            <div className="ico"><i onClick={props.handleChange} className="fa-solid fa-moon fa-6x"></i></div>
+            } 
         </div>
     )
 }

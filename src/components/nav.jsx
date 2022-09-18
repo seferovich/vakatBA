@@ -5,7 +5,7 @@ import '../styles/nav.css'
 const Nav = ()=>{
     return(
         <nav>
-            <h2 className="nav-logo">VakatBa</h2>
+            <h2 className="nav-logo">VakatBA</h2>
             <Link className="lokacija" to='/vakatBA/lokacija'>Lokacija</Link>
         </nav>
     )
