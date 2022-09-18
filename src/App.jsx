@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useCallback} from "react";
-import {Routes, Route, Link} from 'react-router-dom'
-import {nanoid} from 'nanoid'
+import {Routes, Route} from 'react-router-dom'
 import Gradovi from "./components/gradovi";
 import Home from './components/home'
 
@@ -39,14 +38,14 @@ function App() {
       
       <Routes>
 
-        <Route path='/' element={
+        <Route path='/vakatBa' element={
         <Home 
         data={data}
         dark={darkMode}
         />} 
         />
         
-        <Route path='/lokacija' element={
+        <Route path='/vakatBA/lokacija' element={
         <Gradovi 
         handleClick={handleClick}
         dark={darkMode}

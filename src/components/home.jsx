@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from "react";
-import {Link} from 'react-router-dom'
 import { nanoid } from "nanoid";
 import '../styles/home.css'
 import Nav from "./nav";
 
 const Home = (props) => {
     const date = new Date();
-    const sat = date.getHours() + ':' + date.getMinutes() + ':' +date.getSeconds()
+    const sat = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
     const [time, setTime] = useState(sat)
+
     useEffect(()=>{
-        
         setInterval(()=>{
             const clock = new Date();
             setTime(clock.getHours() + ':' + clock.getMinutes() + ':' + clock.getSeconds())

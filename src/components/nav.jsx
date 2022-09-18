@@ -6,7 +6,7 @@ const Nav = ()=>{
     return(
         <nav>
             <h2 className="nav-logo">VakatBa</h2>
-            <Link className="lokacija" to='/lokacija'>Lokacija</Link>
+            <Link className="lokacija" to='/vakatBA/lokacija'>Lokacija</Link>
         </nav>
     )
 }

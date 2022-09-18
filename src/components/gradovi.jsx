@@ -21,7 +21,7 @@ const Gradovi = (props) => {
     const gradovi = city.map((grad,i) => {
         return <Link 
         className={`grad ${props.dark ? 'dark' : ''}`}
-        to='/' 
+        to='/vakatBA' 
         onClick={props.handleClick} 
         key={nanoid()} 
         id={parseInt(i)}>
@@ -32,7 +32,7 @@ const Gradovi = (props) => {
     
     return(
         <div>
-            <Link className="link" to="/"><i className={`${props.dark ? 'dark' : ''} fa-sharp fa-solid fa-x fa-2xl`}></i></Link>
+            <Link className="link" to="/vakatBA"><i className={`${props.dark ? 'dark' : ''} fa-sharp fa-solid fa-x fa-2xl`}></i></Link>
             <div className="gradovi">
                 {gradovi} 
             </div>
