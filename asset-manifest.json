@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/vakatBA/static/css/main.8491f07e.css",
+    "main.js": "/vakatBA/static/js/main.0388ceee.js",
+    "index.html": "/vakatBA/index.html",
+    "main.8491f07e.css.map": "/vakatBA/static/css/main.8491f07e.css.map",
+    "main.0388ceee.js.map": "/vakatBA/static/js/main.0388ceee.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8491f07e.css",
+    "static/js/main.0388ceee.js"
+  ]
+}
