@@ -35,7 +35,7 @@ function App() {
 
     fetchCity()
 
-    
+
     // Get theme from LS
     if(localStorage.length > 0){
       setDarkMode(JSON.parse(localStorage.getItem('darkMode')))

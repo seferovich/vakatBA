@@ -2,19 +2,11 @@ import React, {useState, useEffect} from "react";
 import { nanoid } from "nanoid";
 import '../styles/home.css'
 import Nav from "./Nav";
-
+import Clock from "./Clock"
 const Home = (props) => {
-    const date = new Date();
-    const sat = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
-    const [time, setTime] = useState(sat)
+    
 
-    // Clock
-    useEffect(()=>{
-        setInterval(()=>{
-            const clock = new Date();
-            setTime(clock.getHours() + ':' + clock.getMinutes() + ':' + clock.getSeconds())
-        },1000)
-    }, [])
+    
 
     // Rendering API data
     const vakatovi = props.data.vakat?.map((namaz, i ) =>{
@@ -47,7 +39,9 @@ const Home = (props) => {
             <Nav />
             <div className="home">
                 <h1 className="lokacija-main">Vaktija {props.data.lokacija}</h1>
-                <h2 className={props.dark ? 'clock dark' : 'clock'}>{time}</h2>
+                <Clock 
+                dark={props.dark}
+                />
                 <div className="vaktovi">
                     {vaktovi()}
                 </div>

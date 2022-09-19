@@ -18,13 +18,12 @@ nav{
 .nav-logo{
     margin-left: 20px;
     color: #7F499D;
-    font-size: 22pt;
+    font-size: 3vh;
 }
 
 .lokacija{
     text-decoration: none;
-    
-    font-size: 22pt;
+    font-size: 3vh;
     margin-right: 20px;
     color: #7F499D;
     
