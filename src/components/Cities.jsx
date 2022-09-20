@@ -1,8 +1,8 @@
 import React, {useCallback, useEffect, useState} from "react";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import { nanoid } from "nanoid";
-import '../styles/cities.css'
-
+import '../styles/cities.css';
+import { motion } from "framer-motion";
 const Cities = (props) => {
     // Rendering API city data
     const gradovi = props.city.map((grad,i) => {
@@ -19,10 +19,12 @@ const Cities = (props) => {
     
     return(
         <div>
-            <Link className="link" to="/vakatBA"><i className={`${props.dark ? 'dark' : ''} fa-sharp fa-solid fa-x fa-2xl`}></i></Link>
-            <div className="gradovi">
-                {gradovi} 
-            </div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+                <Link className="link" to="/vakatBA"><i className={`${props.dark ? 'dark' : ''} fa-sharp fa-solid fa-x fa-2xl`}></i></Link>
+                <div className="gradovi">
+                    {gradovi} 
+                </div>
+            </motion.div>
         </div>
     )
 }

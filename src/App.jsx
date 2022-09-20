@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useCallback} from "react";
-import {Routes, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom';
 import Cities from "./components/Cities";
-import Home from './components/Home'
+import Home from './components/Home';
+import { motion } from "framer-motion";
 
 function App() {
   const [data, setData] = useState('Loading...')
@@ -88,7 +89,8 @@ function App() {
         />} 
         />
 
-      </Routes>   
+      </Routes>
+      
     </div>
     
   );

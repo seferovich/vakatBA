@@ -47,7 +47,7 @@ const Clock = (props) => {
             }
 
             setTime(hours + ':' +  minutes + ':' + seconds)
-        }, 1000)
+        }, 500)
         
     }, [])
 

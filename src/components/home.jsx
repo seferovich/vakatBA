@@ -1,13 +1,12 @@
 import React, {useState, useEffect} from "react";
 import { nanoid } from "nanoid";
-import '../styles/home.css'
+import '../styles/home.css';
 import Nav from "./Nav";
-import Clock from "./Clock"
+import Clock from "./Clock";
+import { motion } from "framer-motion";
+
 const Home = (props) => {
     
-
-    
-
     // Rendering API data
     const vakatovi = props.data.vakat?.map((namaz, i ) =>{
         return <h2 className={`vakat ${props.dark ? 'dark' : ''}`} id={i}key={nanoid()}>{namaz}</h2>
@@ -36,20 +35,38 @@ const Home = (props) => {
     return(
         
         <div>
-            <Nav />
+
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }}>
+                <Nav />
+            </motion.div>
+
             <div className="home">
-                <h1 className="lokacija-main">Vaktija {props.data.lokacija}</h1>
-                <Clock 
-                dark={props.dark}
-                />
-                <div className="vaktovi">
-                    {vaktovi()}
-                </div>
+
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
+                    <h1 className="lokacija-main">Vaktija {props.data.lokacija}</h1>
+                </motion.div>
+
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
+                    <Clock 
+                    dark={props.dark}
+                    />
+                </motion.div>
+
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
+                    <div className="vaktovi">
+                        {vaktovi()}
+                    </div>
+                </motion.div>
+
             </div>
-            {props.dark ? 
-            <div className="ico"><i onClick={props.handleChange} className="fa-regular fa-sun fa-5x"></i></div> : 
-            <div className="ico"><i onClick={props.handleChange} className="fa-solid fa-moon fa-6x"></i></div>
-            } 
+
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.1 }}>
+                {props.dark ? 
+                <div className="ico"><i onClick={props.handleChange} className="fa-regular fa-sun fa-5x icon"></i></div> : 
+                <div className="ico"><i onClick={props.handleChange} className="fa-solid fa-moon fa-6x icon"></i></div>
+                } 
+            </motion.div>
+
         </div>
     )
 }
