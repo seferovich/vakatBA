@@ -1,19 +1,33 @@
 import React, {useState, useEffect} from "react";
 import { nanoid } from "nanoid";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { fetchVakat } from "../redux/slices/vakatSlice";
+import { fetchCities } from "../redux/slices/citiesSlice";
 import '../styles/home.css';
 import Nav from "./Nav";
 import Clock from "./Clock";
 import { motion } from "framer-motion";
 
 const Home = (props) => {
+    const data = useSelector((state) => state.vakat.data)
+    const dispatch = useDispatch()
     
+    // Data fetching from redux store
+    useEffect(() => {
+        if(localStorage.location > 1){
+            dispatch(fetchVakat(JSON.parse(localStorage.getItem('location'))))
+          }else{
+            dispatch(fetchVakat(77))
+          }
+          dispatch(fetchCities())
+    }, [])
+
     // Rendering API data
-    const vakatovi = props.data.vakat?.map((namaz, i ) =>{
+    const vakatovi = data.vakat?.map((namaz, i ) =>{
         return <h2 className={`vakat ${props.dark ? 'dark' : ''}`} id={i}key={nanoid()}>{namaz}</h2>
-    })
-   
+    })  
     const vaktovi = () => {  
-        if(props.data.vakat){
+        if(data.vakat){
             return (
                 <div className="vaktovi">
                     <div className='vakat-time'>
@@ -43,7 +57,7 @@ const Home = (props) => {
             <div className="home">
 
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>
-                    <h1 className="lokacija-main">Vaktija {props.data.lokacija}</h1>
+                    <h1 className="lokacija-main">Vaktija {data.lokacija}</h1>
                 </motion.div>
 
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.7 }}>

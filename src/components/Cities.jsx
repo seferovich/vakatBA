@@ -1,15 +1,31 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 import '../styles/cities.css';
+import { fetchCities } from "../redux/slices/citiesSlice";
+import { fetchVakat } from "../redux/slices/vakatSlice";
 import { motion } from "framer-motion";
+
 const Cities = (props) => {
+   
+    
+
+
+    const city = useSelector((state) => state.cities.cities)
+    const dispatch = useDispatch()
+
+    const handleFetch = (e) => {
+        dispatch(fetchVakat(e.target.id))  
+        localStorage.setItem('location', e.target.id)
+    }
+    
     // Rendering API city data
-    const gradovi = props.city.map((grad,i) => {
+    const gradovi = city.map((grad, i) => {
         return <Link 
         className={`grad ${props.dark ? 'dark' : ''}`}
         to='/vakatBA' 
-        onClick={props.handleClick} 
+        onClick={handleFetch} 
         key={nanoid()} 
         id={parseInt(i)}>
             {grad}
