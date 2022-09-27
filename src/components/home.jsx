@@ -14,14 +14,14 @@ const Home = (props) => {
     
     // Data fetching from redux store
     useEffect(() => {
-        if(localStorage.location > 1){
+        if(localStorage.location){
             dispatch(fetchVakat(JSON.parse(localStorage.getItem('location'))))
           }else{
             dispatch(fetchVakat(77))
           }
           dispatch(fetchCities())
     }, [])
-
+    
     // Rendering API data
     const vakatovi = data.vakat?.map((namaz, i ) =>{
         return <h2 className={`vakat ${props.dark ? 'dark' : ''}`} id={i}key={nanoid()}>{namaz}</h2>
