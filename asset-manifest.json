@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/vakatBA/static/css/main.f216d406.css",
-    "main.js": "/vakatBA/static/js/main.5870d17a.js",
+    "main.js": "/vakatBA/static/js/main.fd73ebdc.js",
     "index.html": "/vakatBA/index.html",
     "main.f216d406.css.map": "/vakatBA/static/css/main.f216d406.css.map",
-    "main.5870d17a.js.map": "/vakatBA/static/js/main.5870d17a.js.map"
+    "main.fd73ebdc.js.map": "/vakatBA/static/js/main.fd73ebdc.js.map"
   },
   "entrypoints": [
     "static/css/main.f216d406.css",
-    "static/js/main.5870d17a.js"
+    "static/js/main.fd73ebdc.js"
   ]
 }
