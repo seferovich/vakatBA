@@ -1,7 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
-const initialState = {
+
+type InitialState = {
+    loading: boolean,
+    cities: string[],
+    error: string
+}
+const initialState: InitialState = {
     loading: false,
     cities: [],
     error: ''
@@ -21,6 +27,7 @@ export const fetchCities = createAsyncThunk('cities/fetchCities', async () => {
 const citiesSlice = createSlice({
     name: 'cities',
     initialState,
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchCities.pending, (state) => {
             state.loading = true

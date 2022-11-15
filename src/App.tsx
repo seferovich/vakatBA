@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from "react";
+import React, {useState, useEffect} from "react";
 import {Routes, Route} from 'react-router-dom';
 
 import Cities from "./components/Cities";
@@ -12,23 +12,27 @@ function App() {
   useEffect(()=>{
     // Get theme from LS
     if(localStorage.length > 0){
-      setDarkMode(JSON.parse(localStorage.getItem('darkMode')))
+      setDarkMode(JSON.parse(localStorage.getItem('darkMode') || ''))
     }else{
-      localStorage.setItem('darkMode', darkMode)
+      localStorage.setItem('darkMode', JSON.stringify(darkMode))
     }
   }, [])
 
 
   // Track theme changes in LS
   useEffect(() => {
-    setDarkMode(JSON.parse(localStorage.getItem('darkMode')))
+    setDarkMode(JSON.parse(localStorage.getItem('darkMode') || ''))
   }, [darkMode])
  
   
   // Switching dark/light themes
-  const handleChange = (e) => {
-    setDarkMode(prevDarkMode => localStorage.setItem('darkMode', !prevDarkMode))
-    e.preventDefault()
+  const handleChange = () => {
+    setDarkMode(prevDarkMode => {
+      localStorage.setItem('darkMode', JSON.stringify(!prevDarkMode))
+      return !prevDarkMode
+    })
+    
+    
   }
 
   
@@ -38,12 +42,12 @@ function App() {
 
         <Route path='/vakatBa' element={
         <Home 
-        dark={darkMode}
+        dark={String(darkMode)}
         handleChange={handleChange}
         />} 
         />
         
-        <Route path='/vakatBA/lokacija' element={ <Cities dark={darkMode}/> } />
+        <Route path='/vakatBA/lokacija' element={ <Cities dark={String(darkMode)}/> } />
 
       </Routes>
       

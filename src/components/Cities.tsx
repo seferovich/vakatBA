@@ -1,23 +1,27 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, { useEffect } from "react";
 import {Link} from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux";
 import { nanoid } from "nanoid";
 import '../styles/cities.css';
-import { fetchCities } from "../redux/slices/citiesSlice";
 import { fetchVakat } from "../redux/slices/vakatSlice";
 import { motion } from "framer-motion";
+import { useAppDispatch , useAppSelector } from "../hooks";
+import { fetchCities } from "../redux/slices/citiesSlice";
 
-const Cities = (props) => {
-   
+type citiesProps = {
+    dark?: string
+}
+
+const Cities = (props: citiesProps) => {
+
+    const city = useAppSelector((state) => state.cities.cities)
+    const dispatch = useAppDispatch()
+    
     
 
-
-    const city = useSelector((state) => state.cities.cities)
-    const dispatch = useDispatch()
-
-    const handleFetch = (e) => {
-        dispatch(fetchVakat(e.target.id))  
-        localStorage.setItem('location', e.target.id)
+    const handleFetch = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        const target = e.target as Element
+        dispatch(fetchVakat(parseInt(target.id)))
+        localStorage.setItem('location', target.id)
     }
     
     // Rendering API city data
@@ -27,7 +31,7 @@ const Cities = (props) => {
         to='/vakatBA' 
         onClick={handleFetch} 
         key={nanoid()} 
-        id={parseInt(i)}>
+        id={i.toString()}>
             {grad}
         </Link>
     })
@@ -46,3 +50,5 @@ const Cities = (props) => {
 }
 
 export default Cities
+
+
