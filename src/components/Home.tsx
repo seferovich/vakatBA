@@ -9,7 +9,7 @@ import Clock from "./Clock";
 import { motion } from "framer-motion";
 
 type homeProps = {
-    dark: string,
+    dark: boolean,
     handleChange: () => void
 }
 const Home = (props: homeProps) => {

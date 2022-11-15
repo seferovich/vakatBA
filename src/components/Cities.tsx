@@ -8,7 +8,7 @@ import { useAppDispatch , useAppSelector } from "../hooks";
 import { fetchCities } from "../redux/slices/citiesSlice";
 
 type citiesProps = {
-    dark?: string
+    dark?: boolean
 }
 
 const Cities = (props: citiesProps) => {

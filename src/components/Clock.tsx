@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 
 type clockProps = {
-    dark?: string
+    dark?: boolean
 }
 const Clock = (props: clockProps) => {
 

@@ -42,12 +42,12 @@ function App() {
 
         <Route path='/vakatBa' element={
         <Home 
-        dark={String(darkMode)}
+        dark={Boolean(darkMode)}
         handleChange={handleChange}
         />} 
         />
         
-        <Route path='/vakatBA/lokacija' element={ <Cities dark={String(darkMode)}/> } />
+        <Route path='/vakatBA/lokacija' element={ <Cities dark={Boolean(darkMode)}/> } />
 
       </Routes>
       
