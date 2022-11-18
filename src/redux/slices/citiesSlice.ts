@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-
-
 type InitialState = {
     loading: boolean,
     cities: string[],
@@ -21,7 +19,6 @@ export const fetchCities = createAsyncThunk('cities/fetchCities', async () => {
     return res
 
 })
-
 
 
 const citiesSlice = createSlice({

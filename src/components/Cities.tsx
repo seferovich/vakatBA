@@ -16,8 +16,6 @@ const Cities = (props: citiesProps) => {
     const city = useAppSelector((state) => state.cities.cities)
     const dispatch = useAppDispatch()
     
-    
-
     const handleFetch = (e: React.MouseEvent<HTMLAnchorElement>) => {
         const target = e.target as Element
         dispatch(fetchVakat(parseInt(target.id)))

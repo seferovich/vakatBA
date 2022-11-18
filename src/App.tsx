@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Routes, Route} from 'react-router-dom';
+import { Helmet } from 'react-helmet'
 
 import Cities from "./components/Cities";
 import Home from './components/Home';
@@ -31,29 +32,30 @@ function App() {
       localStorage.setItem('darkMode', JSON.stringify(!prevDarkMode))
       return !prevDarkMode
     })
-    
-    
   }
 
   
   return (
-    <div className={darkMode ? 'app-dark' : 'app'}>    
-      <Routes>
+    <div className={darkMode ? 'app-dark' : 'app'}>
 
+      <Helmet>
+        <meta name="theme-color" content={darkMode ? '#08093F' : '#FFFFFF'} />
+      </Helmet>
+
+      <Routes>
         <Route path='/vakatBa' element={
         <Home 
         dark={Boolean(darkMode)}
         handleChange={handleChange}
         />} 
         />
-        
+    
         <Route path='/vakatBA/lokacija' element={ <Cities dark={Boolean(darkMode)}/> } />
-
       </Routes>
       
     </div>
     
-  );
+  )
 }
 
 export default App;

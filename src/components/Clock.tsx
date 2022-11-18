@@ -25,7 +25,6 @@ const Clock = (props: clockProps) => {
 
     const [time, setTime] = useState(hours + ':' +  minutes + ':' + seconds)
 
-
     
     // Clock
     useEffect(()=>{
