@@ -2,7 +2,7 @@
 
 VakatBA is a prayer time application.
 
-Github pages [link](https://seferovich.github.io/vakatBA/)
+Project overview video [link](https://youtu.be/iAHTFzk9tIk)
 
 ## Things I used in this project
 
